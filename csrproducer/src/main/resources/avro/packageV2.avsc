@@ -1,0 +1,12 @@
+{
+    "namespace": "example.avro",
+    "type": "record",
+    "name": "package",
+    "fields": [
+        {"name": "source", "type": "string"},
+        {"name": "destination", "type": "string"},
+        {"name": "size",  "type": "string"},
+        {"name": "weight",  "type": "int"},
+        {"name": "description", "type": "string", "defaullt": "No description provided"},
+    ]
+}
