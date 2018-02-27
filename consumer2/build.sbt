@@ -1,4 +1,4 @@
-name := "csrproducer"
+name := "consumer2"
 
 version := "1.0"
 
@@ -15,13 +15,15 @@ lazy val sparkDependencies = Seq(
 "org.apache.spark" %% "spark-hive" % sparkVersion
 )
 
-libraryDependencies ++= sparkDependencies.map(_ % "compile")
-
-libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.2.0"
+libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % sparkVersion
 libraryDependencies += "commons-configuration" % "commons-configuration" % "1.10"
 libraryDependencies += "com.databricks" %% "spark-avro" % "3.2.0"
 libraryDependencies += "io.confluent" % "kafka-avro-serializer" % "3.3.0" exclude("com.fasterxml.jackson.core", "jackson-databind")
 libraryDependencies += "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.5"
+libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.0.0"
+libraryDependencies ++= sparkDependencies.map(_ % "provided")
 
-// Producer only
-libraryDependencies += "org.twitter4j" % "twitter4j-stream" % "4.0.4"
+assemblyMergeStrategy in assembly := {
+                case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
+                case default => MergeStrategy.first
+}

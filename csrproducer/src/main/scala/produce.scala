@@ -4,8 +4,8 @@ import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient
 import org.apache.avro.Schema
 import org.apache.avro.generic.{GenericData, GenericRecord}
 import org.apache.commons.configuration.Configuration
-import org.apache.hadoop.io.serializer.avro.AvroRecord
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
+import  org.apache.hadoop.io.serializer.avro.AvroRecord
+import  org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
 import twitter4j._
 import twitter4j.conf.ConfigurationBuilder
 
